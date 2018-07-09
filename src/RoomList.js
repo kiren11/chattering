@@ -1,19 +1,27 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
 
-const RoomList = () => {
+import Room from './Room'
+
+const RoomList = ({ rooms }) => {
   return (
     <nav
       className={`RoomList ${css(styles.roomList)}`}
     >
-      <h2 className={css(styles.h2)}>Rooms</h2>
+      <h2 className={css(styles.h2)}>
+        Rooms
+      </h2>
       <ul className={css(styles.list)}>
-        <li>
-          <a href="#" className={css(styles.button)}>general</a>
-        </li>
-        <li>
-          <a href="#" className={css(styles.button)}>random</a>
-        </li>
+        {
+          Object.keys(rooms).map(
+            roomName => (
+              <Room
+                key={roomName}
+                roomName={roomName}
+              />
+            )
+          )
+        }
       </ul>
     </nav>
   )
@@ -32,27 +40,6 @@ const styles = StyleSheet.create({
     listStyle: 'none',
     marginLeft: 0,
     paddingLeft: 0,
-  },
-
-  heading: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-
-  button: {
-    border: 0,
-    backgroundColor: 'transparent',
-    outline: 0,
-    padding: 0,
-    color: 'rgba(255,255,255,0.4)',
-    fontSize: '1rem',
-    cursor: 'pointer',
-    transition: 'color 0.25s ease-out',
-
-    ':hover': {
-      color: 'white',
-    }
   },
 })
 
