@@ -10,7 +10,7 @@ const UserInfo = ({ user, signOut }) => {
       style={styles.userInfo}
     >
       <Avatar user={user} />
-      <div className="user" style={styles.user}>
+      <div style={styles.user}>
         {user.displayName}
       </div>
       <SignOutButton signOut={signOut} />
@@ -28,6 +28,8 @@ const styles = {
 
   user: {
     flex: 1,
+    overflowX: 'hidden',
+    textOverflow: 'ellipsis',
   }
 }
 

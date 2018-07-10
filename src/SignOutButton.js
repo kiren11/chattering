@@ -24,8 +24,8 @@ const styles = StyleSheet.create({
 
     ':hover': {
       color: 'white',
-    },
-  }
+    }
+  },
 })
 
 export default SignOutButton
